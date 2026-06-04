@@ -1,0 +1,655 @@
+{
+  "quiz_title": {
+    "uk": "Planfix CRM Challenge",
+    "en": "Planfix CRM Challenge"
+  },
+  "quiz_subtitle": {
+    "uk": "Короткий квіз про те, навіщо команді CRM і як Planfix допомагає працювати з клієнтами.",
+    "en": "A short quiz about why the team needs CRM and how Planfix helps work with clients."
+  },
+  "intro_text": {
+    "uk": "Колеги, вітаємо! Пройдіть короткий квіз, щоб перевірити розуміння CRM, статусів, наступних дій, якості даних і командної роботи з клієнтами.",
+    "en": "Welcome! Take this short quiz to check your understanding of CRM, statuses, next actions, data quality and teamwork with clients."
+  },
+  "final_message": {
+    "uk": "CRM - це не контроль заради контролю. Це спільна система, яка допомагає команді не втрачати клієнтів, домовленості та наступні дії.",
+    "en": "CRM is not control for the sake of control. It is a shared system that helps the team keep clients, agreements and next actions visible."
+  },
+  "labels": {
+    "start_button": {
+      "uk": "Почати квіз",
+      "en": "Start quiz"
+    },
+    "next_button": {
+      "uk": "Далі",
+      "en": "Next"
+    },
+    "restart_button": {
+      "uk": "Пройти ще раз",
+      "en": "Restart quiz"
+    }
+  },
+  "show_answer_review": true,
+  "branding": {
+    "logo_path": "assets/logo.png",
+    "primary_color": "#1F6FEB",
+    "secondary_color": "#F4F7FB",
+    "accent_color": "#FFB000",
+    "background_color": "#FFFFFF",
+    "text_color": "#1F2937",
+    "font_family": "Inter, Arial, sans-serif"
+  },
+  "results": [
+    {
+      "id": "explorer",
+      "title": {
+        "uk": "CRM Explorer",
+        "en": "CRM Explorer"
+      },
+      "min_percentage": 0,
+      "max_percentage": 40,
+      "description": {
+        "uk": "Ти вже зробив перший крок до кращого розуміння CRM. Рекомендуємо ще раз переглянути базову логіку роботи з клієнтами, статусами та наступними діями.",
+        "en": "You have already made the first step toward understanding CRM better. Review the basic logic of working with clients, statuses and next actions."
+      }
+    },
+    {
+      "id": "active_user",
+      "title": {
+        "uk": "CRM Active User",
+        "en": "CRM Active User"
+      },
+      "min_percentage": 41,
+      "max_percentage": 70,
+      "description": {
+        "uk": "Ти добре розумієш основну логіку CRM. Наступний крок - уважніше працювати з якістю даних, статусами та історією комунікації.",
+        "en": "You understand the main CRM logic well. The next step is to work more carefully with data quality, statuses and communication history."
+      }
+    },
+    {
+      "id": "champion",
+      "title": {
+        "uk": "CRM Champion",
+        "en": "CRM Champion"
+      },
+      "min_percentage": 71,
+      "max_percentage": 100,
+      "description": {
+        "uk": "Чудовий результат. Ти добре розумієш, що CRM - це не просто система для звітності, а інструмент командної роботи, управління клієнтами та прийняття рішень.",
+        "en": "Great result. You understand that CRM is not just a reporting system, but a tool for teamwork, client management and decision-making."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "question": {
+        "uk": "Для чого компанії потрібна CRM?",
+        "en": "Why does a company need CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Щоб ускладнити роботу співробітникам",
+            "en": "To make employees' work more complicated"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Щоб зберігати клієнтів, угоди, історію комунікації та наступні дії в одному місці",
+            "en": "To keep clients, deals, communication history and next actions in one place"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Щоб замінити всі робочі чати",
+            "en": "To replace all work chats"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Щоб дублювати Excel-файли",
+            "en": "To duplicate Excel files"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM допомагає зберігати клієнтів, угоди, історію комунікації та наступні дії в одному місці.",
+        "en": "CRM helps keep clients, deals, communication history and next actions in one place."
+      }
+    },
+    {
+      "id": "q2",
+      "question": {
+        "uk": "Яку головну проблему вирішує CRM?",
+        "en": "What main problem does CRM solve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Допомагає не втрачати клієнтів, задачі та домовленості",
+            "en": "It helps avoid losing clients, tasks and agreements"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Автоматично продає замість менеджера",
+            "en": "It automatically sells instead of the manager"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Видаляє старі контакти",
+            "en": "It deletes old contacts"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Замінює живу комунікацію з клієнтом",
+            "en": "It replaces live communication with the client"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM дає команді спільну пам'ять про клієнтів, задачі та домовленості.",
+        "en": "CRM gives the team a shared memory of clients, tasks and agreements."
+      }
+    },
+    {
+      "id": "q3",
+      "question": {
+        "uk": "Що найважливіше фіксувати в CRM після контакту з клієнтом?",
+        "en": "What is most important to record in CRM after contacting a client?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Тільки ім'я клієнта",
+            "en": "Only the client's name"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Результат контакту, домовленості та наступний крок",
+            "en": "The contact result, agreements and next step"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Лише суму потенційної угоди",
+            "en": "Only the potential deal amount"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Нічого, якщо контакт був короткий",
+            "en": "Nothing if the contact was short"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "Після контакту важливо зберегти контекст, домовленості та конкретну наступну дію.",
+        "en": "After contact, it is important to save context, agreements and a specific next action."
+      }
+    },
+    {
+      "id": "q4",
+      "question": {
+        "uk": "Чому важливо ставити наступну дію в CRM?",
+        "en": "Why is it important to set the next action in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Щоб не забути, що і коли потрібно зробити",
+            "en": "So the team does not forget what needs to be done and when"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Щоб було більше задач у системі",
+            "en": "To create more tasks in the system"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Щоб керівник бачив активність",
+            "en": "So the manager can see activity"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Це необов'язково",
+            "en": "It is optional"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "Наступна дія захищає домовленість від втрати та робить роботу прогнозованою.",
+        "en": "A next action protects agreements from being lost and makes work predictable."
+      }
+    },
+    {
+      "id": "q5",
+      "question": {
+        "uk": "Що відбувається, якщо інформація в CRM не оновлюється?",
+        "en": "What happens if information in CRM is not updated?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Нічого страшного, все можна згадати пізніше",
+            "en": "Nothing serious, everything can be remembered later"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Команда бачить неточну картину по клієнтах, угодах і прогнозах",
+            "en": "The team sees an inaccurate picture of clients, deals and forecasts"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "CRM автоматично все виправить",
+            "en": "CRM will automatically fix everything"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Угода автоматично закриється як виграна",
+            "en": "The deal will automatically close as won"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "Неактуальні дані спотворюють картину роботи з клієнтами та прогнози.",
+        "en": "Outdated data distorts the view of client work and forecasts."
+      }
+    },
+    {
+      "id": "q6",
+      "question": {
+        "uk": "Чому важливо правильно обирати статус угоди?",
+        "en": "Why is it important to choose the deal status correctly?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Щоб система виглядала заповненою",
+            "en": "So the system looks filled in"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Щоб було зрозуміло, на якому етапі клієнт і що потрібно робити далі",
+            "en": "So it is clear what stage the client is at and what should happen next"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Статус не має значення",
+            "en": "Status does not matter"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Щоб угод було більше в CRM",
+            "en": "To have more deals in CRM"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "Статус показує етап роботи з клієнтом і допомагає планувати наступні дії.",
+        "en": "Status shows the client stage and helps plan next actions."
+      }
+    },
+    {
+      "id": "q7",
+      "question": {
+        "uk": "Що краще зробити, якщо клієнт поки не прийняв рішення?",
+        "en": "What is best to do if a client has not made a decision yet?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Залишити угоду без оновлення",
+            "en": "Leave the deal without updates"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Закрити угоду як програну",
+            "en": "Close the deal as lost"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Зафіксувати поточний статус, причину паузи та наступну дату контакту",
+            "en": "Record the current status, pause reason and next contact date"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Видалити контакт",
+            "en": "Delete the contact"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 1,
+      "explanation": {
+        "uk": "Якщо рішення ще немає, важливо зберегти причину паузи та дату наступного контакту.",
+        "en": "If there is no decision yet, save the pause reason and the next contact date."
+      }
+    },
+    {
+      "id": "q8",
+      "question": {
+        "uk": "Навіщо в CRM потрібна історія комунікації з клієнтом?",
+        "en": "Why does CRM need communication history with a client?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Щоб будь-який відповідальний співробітник міг швидко зрозуміти контекст",
+            "en": "So any responsible employee can quickly understand the context"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Щоб зберігати зайву інформацію",
+            "en": "To store unnecessary information"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Щоб не спілкуватися з клієнтом напряму",
+            "en": "So the team does not communicate with the client directly"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Щоб замінити комерційну пропозицію",
+            "en": "To replace a commercial offer"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "Історія комунікації дає контекст і допомагає продовжити роботу без втрати інформації.",
+        "en": "Communication history provides context and helps continue work without losing information."
+      }
+    },
+    {
+      "id": "q9",
+      "question": {
+        "uk": "Яка інформація найбільше допомагає команді працювати з клієнтом?",
+        "en": "What information helps the team work with a client the most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Актуальні контакти, потреба клієнта, статус, історія комунікації та наступна дія",
+            "en": "Current contacts, client need, status, communication history and next action"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Тільки назва компанії",
+            "en": "Only the company name"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Тільки email",
+            "en": "Only email"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Тільки сума угоди",
+            "en": "Only the deal amount"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "Команді потрібен повний робочий контекст, а не один окремий реквізит.",
+        "en": "The team needs full working context, not just one separate field."
+      }
+    },
+    {
+      "id": "q10",
+      "question": {
+        "uk": "Як CRM допомагає керівникам і команді?",
+        "en": "How does CRM help managers and the team?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Дає реальну картину по клієнтах, угодах, завантаженню та прогнозу",
+            "en": "It gives a real picture of clients, deals, workload and forecast"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Замінює всі зустрічі",
+            "en": "It replaces all meetings"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Самостійно приймає рішення за співробітників",
+            "en": "It makes decisions for employees"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Працює тільки для звітності",
+            "en": "It works only for reporting"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM допомагає бачити реальну ситуацію та приймати рішення на основі даних.",
+        "en": "CRM helps see the real situation and make data-based decisions."
+      }
+    },
+    {
+      "id": "q11",
+      "question": {
+        "uk": "Що найбільше шкодить якості CRM?",
+        "en": "What harms CRM quality the most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Заповнені поля і актуальні коментарі",
+            "en": "Filled fields and current comments"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Неправильні статуси, порожні поля, відсутність наступних дій",
+            "en": "Wrong statuses, empty fields and missing next actions"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Регулярне оновлення інформації",
+            "en": "Regular information updates"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Чітка історія комунікації",
+            "en": "Clear communication history"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM втрачає цінність, коли дані неповні, неправильні або без наступних дій.",
+        "en": "CRM loses value when data is incomplete, incorrect or has no next actions."
+      }
+    },
+    {
+      "id": "q12",
+      "question": {
+        "uk": "Який підхід до CRM є правильним?",
+        "en": "Which approach to CRM is correct?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "CRM - це додаткова робота без користі",
+            "en": "CRM is extra work with no benefit"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "CRM - це спільна система, яка допомагає команді працювати швидше, точніше і не втрачати важливу інформацію",
+            "en": "CRM is a shared system that helps the team work faster, more accurately and without losing important information"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "CRM потрібна тільки керівникам",
+            "en": "CRM is needed only by managers"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "CRM потрібна тільки відділу продажів",
+            "en": "CRM is needed only by the sales department"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM працює найкраще як спільний командний інструмент.",
+        "en": "CRM works best as a shared team tool."
+      }
+    },
+    {
+      "id": "q13",
+      "question": {
+        "uk": "Яким статусом у Planfix ми позначаємо діючого клієнта?",
+        "en": "Which Planfix status do we use for an active client?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Не вибрано",
+            "en": "Not selected"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Qualified lead",
+            "en": "Qualified lead"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "This is a Mystery Shopping",
+            "en": "This is a Mystery Shopping"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Non-target lead",
+            "en": "Non-target lead"
+          }
+        },
+        {
+          "id": "E",
+          "text": {
+            "uk": "Current customer",
+            "en": "Current customer"
+          }
+        }
+      ],
+      "correct_option_id": "E",
+      "points": 2,
+      "explanation": {
+        "uk": "Якщо компанія вже є нашим діючим клієнтом, ми позначаємо її статусом Current customer. Це допомагає відрізняти нові ліди від клієнтів, з якими вже є історія співпраці.",
+        "en": "If a company is already our active client, we mark it as Current customer. This helps separate new leads from clients with an existing cooperation history."
+      }
+    }
+  ],
+  "security": {
+    "host_pin": "4444",
+    "admin_pin": "9999"
+  }
+}
