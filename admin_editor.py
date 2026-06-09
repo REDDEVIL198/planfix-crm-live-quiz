@@ -50,6 +50,7 @@ TEXT = {
         "quiz_saved_active": "Квіз збережено і зроблено активним.",
         "quiz_switched": "Активний квіз змінено.",
         "quiz_deleted": "Квіз видалено.",
+        "answer_duration": "Тривалість відповіді, секунд",
         "add_question": "Додати питання",
         "delete": "Видалити",
         "move_up": "Вгору",
@@ -89,6 +90,7 @@ TEXT = {
         "quiz_saved_active": "Quiz saved and made active.",
         "quiz_switched": "Active quiz changed.",
         "quiz_deleted": "Quiz deleted.",
+        "answer_duration": "Answer duration, seconds",
         "add_question": "Add question",
         "delete": "Delete",
         "move_up": "Move up",
@@ -109,13 +111,21 @@ TEXT = {
 
 ADMIN_CONFIG_KEY = "admin_working_config"
 ADMIN_SOURCE_KEY = "admin_source_config_json"
+ADMIN_ACTIVE_FILE_KEY = "admin_active_quiz_file"
 
 
 def render_admin_editor(config: dict[str, Any], language: str) -> dict[str, Any]:
     labels = TEXT[language]
-    if ADMIN_CONFIG_KEY not in st.session_state:
+    active_file = get_active_quiz_file()
+    source_config = export_config(config)
+    if (
+        ADMIN_CONFIG_KEY not in st.session_state
+        or st.session_state.get(ADMIN_SOURCE_KEY) != source_config
+        or st.session_state.get(ADMIN_ACTIVE_FILE_KEY) != active_file
+    ):
         st.session_state[ADMIN_CONFIG_KEY] = deepcopy(config)
-        st.session_state[ADMIN_SOURCE_KEY] = export_config(config)
+        st.session_state[ADMIN_SOURCE_KEY] = source_config
+        st.session_state[ADMIN_ACTIVE_FILE_KEY] = active_file
 
     working_config = st.session_state[ADMIN_CONFIG_KEY]
     st.info(labels["edit_hint"])
@@ -126,6 +136,7 @@ def render_admin_editor(config: dict[str, Any], language: str) -> dict[str, Any]
         if replacement_config is not None:
             st.session_state[ADMIN_CONFIG_KEY] = replacement_config
             st.session_state[ADMIN_SOURCE_KEY] = export_config(replacement_config)
+            st.session_state[ADMIN_ACTIVE_FILE_KEY] = get_active_quiz_file()
             return replacement_config
     with tabs[1]:
         _render_settings(working_config, language)
@@ -149,6 +160,7 @@ def render_admin_editor(config: dict[str, Any], language: str) -> dict[str, Any]
     if st.button(labels["save"], type="primary", disabled=bool(errors), key="save_admin_config"):
         save_quiz_config(working_config)
         st.session_state[ADMIN_SOURCE_KEY] = export_config(working_config)
+        st.session_state[ADMIN_ACTIVE_FILE_KEY] = get_active_quiz_file()
         st.success(labels["saved"])
         st.rerun()
 
@@ -258,6 +270,27 @@ def _render_settings(config: dict[str, Any], language: str) -> None:
     config["quiz_subtitle"] = _localized_text_area("Підзаголовок / Subtitle", config.get("quiz_subtitle"), language, "quiz_subtitle")
     config["intro_text"] = _localized_text_area("Вступний текст / Intro text", config.get("intro_text"), language, "intro_text")
     config["final_message"] = _localized_text_area("Фінальне повідомлення / Final message", config.get("final_message"), language, "final_message")
+    live_quiz = config.setdefault("live_quiz", {})
+    try:
+        current_timer = int(live_quiz.get("question_timer_seconds", 10))
+    except (TypeError, ValueError):
+        current_timer = 10
+    if current_timer < 5 or current_timer > 120:
+        current_timer = 10
+    st.markdown("<div class='admin-live-settings'>", unsafe_allow_html=True)
+    st.subheader("Live quiz")
+    live_quiz["question_timer_seconds"] = int(
+        st.number_input(
+            TEXT[language]["answer_duration"],
+            min_value=5,
+            max_value=120,
+            step=1,
+            value=current_timer,
+            key="live_question_timer_seconds",
+        )
+    )
+    st.markdown("</div>", unsafe_allow_html=True)
+    live_quiz["auto_reveal"] = bool(live_quiz.get("auto_reveal", True))
     labels = config.setdefault("labels", {})
     for label_key in ["start_button", "next_button", "restart_button"]:
         labels[label_key] = _localized_text_input(label_key, labels.get(label_key), language, f"label_{label_key}")

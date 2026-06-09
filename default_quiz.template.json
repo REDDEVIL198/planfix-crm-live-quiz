@@ -651,5 +651,9 @@
   "security": {
     "host_pin": "4444",
     "admin_pin": "9999"
+  },
+  "live_quiz": {
+    "question_timer_seconds": 10,
+    "auto_reveal": true
   }
 }

@@ -348,27 +348,36 @@ def render_participant_question(config: dict[str, Any], language: str, participa
         st.warning(labels["expired_waiting"])
         return
 
-    st.markdown("<div class='participant-answer-grid-marker'></div>", unsafe_allow_html=True)
-    columns = st.columns(2)
-    for option_index, option in enumerate(question.get("options", [])):
-        option_id = str(option.get("id", ""))
-        text = option_text(question, option_id, language)
-        label = f"{option_id}  {text}"
-        with columns[option_index % 2]:
-            if st.button(label, key=f"participant_answer_{question.get('id')}_{option_id}", use_container_width=True):
-                result = save_answer(
-                    participant_id,
-                    str(question.get("id")),
-                    option_id,
-                    state=state,
-                    current_question_id=str(question.get("id")),
-                    timer_expired=remaining_seconds(state, config) <= 0,
-                )
-                if result["saved"]:
-                    st.success(labels["submitted"])
-                else:
-                    st.warning(answer_rejection_message(labels, result["reason"]))
-                st.rerun()
+    option_ids = [str(option.get("id", "")) for option in question.get("options", [])]
+    with st.form(f"participant_answer_form_{question.get('id')}"):
+        st.markdown("<div class='participant-answer-radio-marker'></div>", unsafe_allow_html=True)
+        selected_option = st.radio(
+            labels["select_answer"],
+            option_ids,
+            index=None,
+            format_func=lambda option_id: option_text(question, option_id, language),
+            key=f"participant_selected_{question.get('id')}",
+            label_visibility="collapsed",
+        )
+        submitted = st.form_submit_button(labels["submit"], type="primary", use_container_width=True)
+
+    if submitted:
+        if not selected_option:
+            st.warning(labels["select_answer"])
+            return
+        result = save_answer(
+            participant_id,
+            str(question.get("id")),
+            str(selected_option),
+            state=state,
+            current_question_id=str(question.get("id")),
+            timer_expired=remaining_seconds(state, config) <= 0,
+        )
+        if result["saved"]:
+            st.success(labels["submitted"])
+        else:
+            st.warning(answer_rejection_message(labels, result["reason"]))
+        st.rerun()
 
 
 def render_participant_reveal(config: dict[str, Any], language: str, participant_id: int, state: dict[str, str]) -> None:
