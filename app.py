@@ -33,7 +33,9 @@ from storage import load_active_quiz_config, load_quiz_config
 
 
 BASE_DIR = Path(__file__).resolve().parent
-QUESTION_SECONDS = 10
+DEFAULT_QUESTION_SECONDS = 10
+MIN_QUESTION_SECONDS = 5
+MAX_QUESTION_SECONDS = 120
 TEXT = {
     "uk": {
         "language": "Мова",
@@ -53,8 +55,9 @@ TEXT = {
         "timer": "Таймер",
         "seconds": "сек",
         "submit": "Надіслати відповідь",
-        "submitted": "Відповідь прийнято. Чекайте розкриття правильної відповіді.",
+        "submitted": "Відповідь прийнята. Очікуємо правильну відповідь.",
         "expired": "Час вийшов.",
+        "expired_waiting": "Час вийшов. Очікуємо правильну відповідь.",
         "time_expired_rejected": "Час вийшов. Відповідь не зараховано.",
         "already_answered": "Ви вже відповіли на це питання.",
         "answer_error": "Не вдалося зберегти відповідь. Спробуйте ще раз, якщо час ще не вийшов.",
@@ -117,8 +120,9 @@ TEXT = {
         "timer": "Timer",
         "seconds": "sec",
         "submit": "Submit answer",
-        "submitted": "Answer submitted. Wait for the correct answer reveal.",
+        "submitted": "Answer submitted. Waiting for the correct answer.",
         "expired": "Time is up.",
+        "expired_waiting": "Time is up. Waiting for the correct answer.",
         "time_expired_rejected": "Time is up. Your answer was not counted.",
         "already_answered": "You already answered this question.",
         "answer_error": "Could not save the answer. Try again if time is still active.",
@@ -264,7 +268,8 @@ def require_pin(config: dict[str, Any], pin_key: str, labels: dict[str, str], se
 
 def render_participant(config: dict[str, Any], language: str) -> None:
     labels = TEXT[language]
-    st.title(localized(config.get("quiz_title"), language))
+    quiz_title = localized(config.get("quiz_title"), language)
+    st.title(quiz_title)
     st.caption(localized(config.get("quiz_subtitle"), language))
 
     participant = get_participant(st.session_state.get("participant_id"))
@@ -316,43 +321,54 @@ def render_participant_question(config: dict[str, Any], language: str, participa
         return
 
     index = current_question_index(state)
-    remaining = remaining_seconds(state)
+    remaining = remaining_seconds(state, config)
+    timer_total = question_timer_seconds(config)
+    percent = max(0, min(100, int(remaining / timer_total * 100)))
     existing = get_answer(participant_id, str(question.get("id")))
-    st.markdown(f"### {labels['question']} {index + 1} / {len(config.get('questions', []))}")
-    st.metric(labels["timer"], f"{remaining} {labels['seconds']}")
-    st.markdown(f"<div class='question-card'>{localized(question.get('question'), language)}</div>", unsafe_allow_html=True)
+    title = escape(localized(config.get("quiz_title"), language))
+    question_text = escape(localized(question.get("question"), language))
+    st.markdown(
+        f"""
+        <section class="participant-live">
+          <div class="participant-header">
+            <div><span class="participant-kicker">LIVE QUIZ</span><h1>{title}</h1></div>
+            <div class="participant-timer"><span>{labels['question']} {index + 1} / {len(config.get('questions', []))}</span><strong>{remaining}</strong><em>{labels['seconds']}</em></div>
+          </div>
+          <div class="participant-timer-track"><div style="width:{percent}%"></div></div>
+          <section class="participant-question-card"><h2>{question_text}</h2></section>
+        </section>
+        """,
+        unsafe_allow_html=True,
+    )
 
     if existing:
         st.success(labels["submitted"])
         return
     if remaining <= 0:
-        st.warning(labels["expired"])
+        st.warning(labels["expired_waiting"])
         return
 
-    selected = st.radio(
-        "",
-        [option.get("id") for option in question.get("options", [])],
-        index=None,
-        format_func=lambda option_id: f"{option_id}. {option_text(question, option_id, language)}",
-        label_visibility="collapsed",
-    )
-    if st.button(labels["submit"], type="primary"):
-        if not selected:
-            st.warning(labels["select_answer"])
-        else:
-            result = save_answer(
-                participant_id,
-                str(question.get("id")),
-                str(selected),
-                state=state,
-                current_question_id=str(question.get("id")),
-                timer_expired=remaining_seconds(state) <= 0,
-            )
-            if result["saved"]:
-                st.success(labels["submitted"])
-            else:
-                st.warning(answer_rejection_message(labels, result["reason"]))
-            st.rerun()
+    st.markdown("<div class='participant-answer-grid-marker'></div>", unsafe_allow_html=True)
+    columns = st.columns(2)
+    for option_index, option in enumerate(question.get("options", [])):
+        option_id = str(option.get("id", ""))
+        text = option_text(question, option_id, language)
+        label = f"{option_id}  {text}"
+        with columns[option_index % 2]:
+            if st.button(label, key=f"participant_answer_{question.get('id')}_{option_id}", use_container_width=True):
+                result = save_answer(
+                    participant_id,
+                    str(question.get("id")),
+                    option_id,
+                    state=state,
+                    current_question_id=str(question.get("id")),
+                    timer_expired=remaining_seconds(state, config) <= 0,
+                )
+                if result["saved"]:
+                    st.success(labels["submitted"])
+                else:
+                    st.warning(answer_rejection_message(labels, result["reason"]))
+                st.rerun()
 
 
 def render_participant_reveal(config: dict[str, Any], language: str, participant_id: int, state: dict[str, str]) -> None:
@@ -366,11 +382,31 @@ def render_participant_reveal(config: dict[str, Any], language: str, participant
     is_correct = bool(answer and selected == correct)
     max_points = int(question.get("points", 0))
     points = max_points if is_correct else 0
-    st.markdown(f"### {localized(question.get('question'), language)}")
-    st.info(f"{labels['your_answer']}: {selected}")
-    st.success(f"{labels['correct_answer']}: {correct}. {option_text(question, correct, language)}")
-    st.write(f"{labels['result']}: **{labels['correct'] if is_correct else labels['incorrect']}**")
-    st.write(f"{labels['points']}: **{points} / {max_points}**")
+    question_text = escape(localized(question.get("question"), language))
+    selected_text = option_text(question, selected, language) if answer else labels["no_answer"]
+    selected_badge = str(selected) if answer else "-"
+    correct_text = option_text(question, correct, language)
+    result_class = "participant-result-correct" if is_correct else "participant-result-wrong"
+    result_text = labels["correct"] if is_correct else labels["incorrect"]
+    st.markdown(
+        f"""
+        <section class="participant-question-card participant-reveal-question"><h2>{question_text}</h2></section>
+        <section class="participant-reveal-grid">
+          <article class="participant-result-card {result_class}">
+            <span>{labels['your_answer']}</span>
+            <strong>{escape(selected_badge)}</strong>
+            <p>{escape(selected_text)}</p>
+          </article>
+          <article class="participant-result-card participant-result-correct">
+            <span>{labels['correct_answer']}</span>
+            <strong>{escape(correct)}</strong>
+            <p>{escape(correct_text)}</p>
+          </article>
+        </section>
+        <div class="participant-result-summary">{labels['result']}: <strong>{result_text}</strong> · {labels['points']}: <strong>{points} / {max_points}</strong></div>
+        """,
+        unsafe_allow_html=True,
+    )
     explanation = localized(question.get("explanation"), language)
     if explanation:
         st.write(explanation)
@@ -537,8 +573,10 @@ def render_host_question_stage(
 
 
 def render_host_timer(labels: dict[str, str], state: dict[str, str]) -> None:
-    remaining = remaining_seconds(state)
-    percent = max(0, min(100, int(remaining / QUESTION_SECONDS * 100)))
+    config = load_active_quiz_config()
+    timer_total = question_timer_seconds(config)
+    remaining = remaining_seconds(state, config)
+    percent = max(0, min(100, int(remaining / timer_total * 100)))
     low_class = " host-timer-low" if remaining <= 3 else ""
     st.markdown(
         f"""
@@ -624,7 +662,7 @@ def render_host_participant(
             if existing:
                 st.success(labels["submitted"])
                 return
-            remaining = remaining_seconds(state)
+            remaining = remaining_seconds(state, config)
             if remaining <= 0:
                 st.warning(labels["expired"])
                 return
@@ -646,7 +684,7 @@ def render_host_participant(
                         str(selected),
                         state=state,
                         current_question_id=question_id,
-                        timer_expired=remaining_seconds(state) <= 0,
+                        timer_expired=remaining_seconds(state, config) <= 0,
                     )
                     if result["saved"]:
                         st.success(labels["submitted"])
@@ -761,19 +799,31 @@ def leaderboard_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def sync_timer_phase(state: dict[str, str]) -> dict[str, str]:
-    if state.get("phase") == "question" and remaining_seconds(state) <= 0:
+    config = load_active_quiz_config()
+    if state.get("phase") == "question" and remaining_seconds(state, config) <= 0:
         set_state(phase="reveal")
         state = dict(state)
         state["phase"] = "reveal"
     return state
 
 
-def remaining_seconds(state: dict[str, str]) -> int:
+def question_timer_seconds(config: dict[str, Any]) -> int:
+    try:
+        seconds = int(config.get("live_quiz", {}).get("question_timer_seconds", DEFAULT_QUESTION_SECONDS))
+    except (TypeError, ValueError):
+        seconds = DEFAULT_QUESTION_SECONDS
+    if seconds < MIN_QUESTION_SECONDS or seconds > MAX_QUESTION_SECONDS:
+        return DEFAULT_QUESTION_SECONDS
+    return seconds
+
+
+def remaining_seconds(state: dict[str, str], config: dict[str, Any] | None = None) -> int:
+    total_seconds = question_timer_seconds(config or load_active_quiz_config())
     started = question_started_timestamp(state)
     if started is None:
-        return QUESTION_SECONDS
+        return total_seconds
     elapsed = int(time.time() - started)
-    return max(0, QUESTION_SECONDS - elapsed)
+    return max(0, total_seconds - elapsed)
 
 
 if __name__ == "__main__":
