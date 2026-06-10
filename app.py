@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import base64
 import time
@@ -38,69 +38,69 @@ MIN_QUESTION_SECONDS = 5
 MAX_QUESTION_SECONDS = 120
 TEXT = {
     "uk": {
-        "language": "РњРѕРІР°",
-        "mode": "Р РµР¶РёРј",
-        "participant": "РЈС‡Р°СЃРЅРёРє",
+        "language": "Мова",
+        "mode": "Режим",
+        "participant": "Учасник",
         "host": "Host",
         "admin": "Admin",
-        "results": "Р РµР·СѓР»СЊС‚Р°С‚Рё",
-        "name": "Р†Рј'СЏ",
-        "department": "Р’С–РґРґС–Р» / РєРѕРјР°РЅРґР°",
-        "join": "РџСЂРёС”РґРЅР°С‚РёСЃСЏ",
-        "name_required": "Р’РІРµРґС–С‚СЊ С–Рј'СЏ, С‰РѕР± РїСЂРёС”РґРЅР°С‚РёСЃСЏ.",
-        "lobby": "Р›РѕР±С–",
-        "waiting_lobby": "РћС‡С–РєСѓС”РјРѕ СЃС‚Р°СЂС‚Сѓ РєРІС–Р·Сѓ. РќРµ Р·Р°РєСЂРёРІР°Р№С‚Рµ СЃС‚РѕСЂС–РЅРєСѓ.",
-        "waiting_question": "РћС‡С–РєСѓС”РјРѕ РЅР°СЃС‚СѓРїРЅРµ РїРёС‚Р°РЅРЅСЏ.",
-        "question": "РџРёС‚Р°РЅРЅСЏ",
-        "timer": "РўР°Р№РјРµСЂ",
-        "seconds": "СЃРµРє",
-        "submit": "РќР°РґС–СЃР»Р°С‚Рё РІС–РґРїРѕРІС–РґСЊ",
-        "submitted": "Р’С–РґРїРѕРІС–РґСЊ РїСЂРёР№РЅСЏС‚Р°. РћС‡С–РєСѓС”РјРѕ РїСЂР°РІРёР»СЊРЅСѓ РІС–РґРїРѕРІС–РґСЊ.",
-        "expired": "Р§Р°СЃ РІРёР№С€РѕРІ.",
-        "expired_waiting": "Р§Р°СЃ РІРёР№С€РѕРІ. РћС‡С–РєСѓС”РјРѕ РїСЂР°РІРёР»СЊРЅСѓ РІС–РґРїРѕРІС–РґСЊ.",
-        "time_expired_rejected": "Р§Р°СЃ РІРёР№С€РѕРІ. Р’С–РґРїРѕРІС–РґСЊ РЅРµ Р·Р°СЂР°С…РѕРІР°РЅРѕ.",
-        "already_answered": "Р’Рё РІР¶Рµ РІС–РґРїРѕРІС–Р»Рё РЅР° С†Рµ РїРёС‚Р°РЅРЅСЏ.",
-        "answer_error": "РќРµ РІРґР°Р»РѕСЃСЏ Р·Р±РµСЂРµРіС‚Рё РІС–РґРїРѕРІС–РґСЊ. РЎРїСЂРѕР±СѓР№С‚Рµ С‰Рµ СЂР°Р·, СЏРєС‰Рѕ С‡Р°СЃ С‰Рµ РЅРµ РІРёР№С€РѕРІ.",
-        "select_answer": "РћР±РµСЂС–С‚СЊ РІС–РґРїРѕРІС–РґСЊ.",
-        "correct_answer": "РџСЂР°РІРёР»СЊРЅР° РІС–РґРїРѕРІС–РґСЊ",
-        "your_answer": "Р’Р°С€Р° РІС–РґРїРѕРІС–РґСЊ",
-        "result": "Р РµР·СѓР»СЊС‚Р°С‚",
-        "correct": "РџСЂР°РІРёР»СЊРЅРѕ",
-        "incorrect": "РќРµРїСЂР°РІРёР»СЊРЅРѕ",
-        "points": "Р‘Р°Р»Рё",
-        "no_answer": "Р±РµР· РІС–РґРїРѕРІС–РґС–",
-        "final": "Р¤С–РЅР°Р»СЊРЅС– СЂРµР·СѓР»СЊС‚Р°С‚Рё",
-        "your_result": "Р’Р°С€ СЂРµР·СѓР»СЊС‚Р°С‚",
-        "place": "РњС–СЃС†Рµ",
-        "score": "Р‘Р°Р»Рё",
-        "correct_answers": "РџСЂР°РІРёР»СЊРЅРёС… РІС–РґРїРѕРІС–РґРµР№",
-        "percentage": "Р’С–РґСЃРѕС‚РѕРє",
-        "top_10": "РўРѕРї 10",
-        "participant_count": "РЈС‡Р°СЃРЅРёРєС–РІ",
-        "answers_received": "Р’С–РґРїРѕРІС–РґРµР№ РѕС‚СЂРёРјР°РЅРѕ",
-        "enter_pin": "Р’РІРµРґС–С‚СЊ PIN",
-        "unlock": "РЈРІС–Р№С‚Рё",
-        "bad_pin": "РќРµРїСЂР°РІРёР»СЊРЅРёР№ PIN.",
-        "session_note": "Р”Р»СЏ С‚РµСЃС‚СѓРІР°РЅРЅСЏ СЏРє СѓС‡Р°СЃРЅРёРє РІС–РґРєСЂРёР№С‚Рµ РєРІС–Р· РІ С–РЅС€РѕРјСѓ Р±СЂР°СѓР·РµСЂС– Р°Р±Рѕ РІ СЂРµР¶РёРјС– С–РЅРєРѕРіРЅС–С‚Рѕ.",
-        "change_participant": "Р’РёР№С‚Рё / Р·РјС–РЅРёС‚Рё СѓС‡Р°СЃРЅРёРєР°",
-        "host_participant": "РўРµСЃС‚РѕРІРёР№ СѓС‡Р°СЃРЅРёРє / Host participant",
-        "join_as_host": "РџСЂРёС”РґРЅР°С‚РёСЃСЏ СЏРє СѓС‡Р°СЃРЅРёРє",
-        "answer_as_host": "Р’С–РґРїРѕРІС–СЃС‚Рё СЏРє",
-        "host_panel": "Host-РїР°РЅРµР»СЊ",
-        "start_quiz": "РџРѕС‡Р°С‚Рё РєРІС–Р·",
-        "start_question": "Р—Р°РїСѓСЃС‚РёС‚Рё РїРёС‚Р°РЅРЅСЏ",
-        "waiting_answers": "РћС‡С–РєСѓС”РјРѕ РІС–РґРїРѕРІС–РґС–...",
-        "reveal": "РџРѕРєР°Р·Р°С‚Рё РїСЂР°РІРёР»СЊРЅСѓ РІС–РґРїРѕРІС–РґСЊ Р·Р°СЂР°Р·",
-        "next_question": "РќР°СЃС‚СѓРїРЅРµ РїРёС‚Р°РЅРЅСЏ",
-        "show_final": "РџРѕРєР°Р·Р°С‚Рё С„С–РЅР°Р»СЊРЅС– СЂРµР·СѓР»СЊС‚Р°С‚Рё",
-        "new_live_session": "РќРѕРІР° live-СЃРµСЃС–СЏ",
-        "reset_session": "РЎРєРёРЅСѓС‚Рё live-СЃРµСЃС–СЋ",
-        "confirm_reset": "РЇ РїС–РґС‚РІРµСЂРґР¶СѓСЋ СЃРєРёРґР°РЅРЅСЏ live-СЃРµСЃС–С—",
-        "download_live_csv": "Р—Р°РІР°РЅС‚Р°Р¶РёС‚Рё live CSV",
-        "share_link": "РџРѕСЃРёР»Р°РЅРЅСЏ РґР»СЏ СѓС‡Р°СЃРЅРёРєС–РІ",
-        "leaderboard_empty": "РџРѕРєРё РЅРµРјР°С” СѓС‡Р°СЃРЅРёРєС–РІ.",
-        "admin_protected": "Admin Mode Р·Р°С…РёС‰РµРЅРѕ PIN.",
-        "host_protected": "Host Mode Р·Р°С…РёС‰РµРЅРѕ PIN.",
+        "results": "Результати",
+        "name": "Ім'я",
+        "department": "Відділ / команда",
+        "join": "Приєднатися",
+        "name_required": "Введіть ім'я, щоб приєднатися.",
+        "lobby": "Лобі",
+        "waiting_lobby": "Очікуємо старту квізу. Не закривайте сторінку.",
+        "waiting_question": "Очікуємо наступне питання.",
+        "question": "Питання",
+        "timer": "Таймер",
+        "seconds": "сек",
+        "submit": "Надіслати відповідь",
+        "submitted": "Відповідь прийнята. Очікуємо правильну відповідь.",
+        "expired": "Час вийшов.",
+        "expired_waiting": "Час вийшов. Очікуємо правильну відповідь.",
+        "time_expired_rejected": "Час вийшов. Відповідь не зараховано.",
+        "already_answered": "Ви вже відповіли на це питання.",
+        "answer_error": "Не вдалося зберегти відповідь. Спробуйте ще раз, якщо час ще не вийшов.",
+        "select_answer": "Оберіть відповідь.",
+        "correct_answer": "Правильна відповідь",
+        "your_answer": "Ваша відповідь",
+        "result": "Результат",
+        "correct": "Правильно",
+        "incorrect": "Неправильно",
+        "points": "Бали",
+        "no_answer": "без відповіді",
+        "final": "Фінальні результати",
+        "your_result": "Ваш результат",
+        "place": "Місце",
+        "score": "Бали",
+        "correct_answers": "Правильних відповідей",
+        "percentage": "Відсоток",
+        "top_10": "Топ 10",
+        "participant_count": "Учасників",
+        "answers_received": "Відповідей отримано",
+        "enter_pin": "Введіть PIN",
+        "unlock": "Увійти",
+        "bad_pin": "Неправильний PIN.",
+        "session_note": "Для тестування як учасник відкрийте квіз в іншому браузері або в режимі інкогніто.",
+        "change_participant": "Вийти / змінити учасника",
+        "host_participant": "Тестовий учасник / Host participant",
+        "join_as_host": "Приєднатися як учасник",
+        "answer_as_host": "Відповісти як",
+        "host_panel": "Host-панель",
+        "start_quiz": "Почати квіз",
+        "start_question": "Запустити питання",
+        "waiting_answers": "Очікуємо відповіді...",
+        "reveal": "Показати правильну відповідь зараз",
+        "next_question": "Наступне питання",
+        "show_final": "Показати фінальні результати",
+        "new_live_session": "Нова live-сесія",
+        "reset_session": "Скинути live-сесію",
+        "confirm_reset": "Я підтверджую скидання live-сесії",
+        "download_live_csv": "Завантажити live CSV",
+        "share_link": "Посилання для учасників",
+        "leaderboard_empty": "Поки немає учасників.",
+        "admin_protected": "Admin Mode захищено PIN.",
+        "host_protected": "Host Mode захищено PIN.",
     },
     "en": {
         "language": "Language",
@@ -171,12 +171,12 @@ TEXT = {
 
 
 def main() -> None:
-    st.set_page_config(page_title="Planfix CRM Live Quiz", page_icon="вњ…", layout="wide")
+    st.set_page_config(page_title="Planfix CRM Live Quiz", page_icon="✅", layout="wide")
     config = load_active_quiz_config()
     language = st.sidebar.selectbox(
         TEXT["uk"]["language"],
         ["uk", "en"],
-        format_func=lambda item: "РЈРєСЂР°С—РЅСЃСЊРєР°" if item == "uk" else "English",
+        format_func=lambda item: "Українська" if item == "uk" else "English",
     )
     labels = TEXT[language]
     apply_branding(config.get("branding", {}))
@@ -289,7 +289,7 @@ def render_participant(config: dict[str, Any], language: str) -> None:
     state = get_state()
     state = sync_timer_phase(state)
     phase = state.get("phase", "lobby")
-    st.success(f"{participant['name']} В· {participant.get('department', '')}".strip(" В·"))
+    st.success(f"{participant['name']} · {participant.get('department', '')}".strip(" ·"))
     if st.button(labels["change_participant"], key="change_participant"):
         st.session_state.pop("participant_id", None)
         st.rerun()
@@ -419,7 +419,7 @@ def render_participant_reveal(config: dict[str, Any], language: str, participant
             <p>{escape(correct_text)}</p>
           </article>
         </section>
-        <div class="participant-result-summary">{labels['result']}: <strong>{result_text}</strong> В· {labels['points']}: <strong>{points} / {max_points}</strong></div>
+        <div class="participant-result-summary">{labels['result']}: <strong>{result_text}</strong> · {labels['points']}: <strong>{points} / {max_points}</strong></div>
         """,
         unsafe_allow_html=True,
     )
@@ -542,7 +542,7 @@ def render_host_lobby(labels: dict[str, str], participants: list[dict[str, Any]]
         <section class="host-question-card host-lobby-card">
           <div class="host-kicker">{labels['lobby']}</div>
           <h2>{labels['waiting_lobby']}</h2>
-          <p>{labels['share_link']}: public Streamlit URL в†’ {labels['participant']}</p>
+          <p>{labels['share_link']}: public Streamlit URL → {labels['participant']}</p>
         </section>
         """,
         unsafe_allow_html=True,
@@ -670,7 +670,7 @@ def render_host_participant(
                     st.rerun()
             return
 
-        st.caption(f"{host_participant['name']} В· {host_participant.get('department', '')}".strip(" В·"))
+        st.caption(f"{host_participant['name']} · {host_participant.get('department', '')}".strip(" ·"))
         phase = state.get("phase", "lobby")
         if phase == "question" and question:
             question_id = str(question.get("id"))
@@ -781,7 +781,7 @@ def render_leaderboard(
             st.markdown("<div class='host-ranked-list'>", unsafe_allow_html=True)
             for row in remaining:
                 st.markdown(
-                    f"<div><strong>{row['place']}. {escape(str(row['name']))}</strong><span>{row['score']}/{row['max_score']} В· {row['correct_answers']} В· {row['percentage']}%</span></div>",
+                    f"<div><strong>{row['place']}. {escape(str(row['name']))}</strong><span>{row['score']}/{row['max_score']} · {row['correct_answers']} · {row['percentage']}%</span></div>",
                     unsafe_allow_html=True,
                 )
             st.markdown("</div>", unsafe_allow_html=True)
