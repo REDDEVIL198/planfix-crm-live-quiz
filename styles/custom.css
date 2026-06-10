@@ -1,4 +1,4 @@
-html, body, [class*="css"] {
+﻿html, body, [class*="css"] {
   font-family: var(--font-family);
   color: var(--text-color);
 }
@@ -186,6 +186,82 @@ div[role="radiogroup"] label {
   border-radius: 999px;
   background: var(--accent-color);
   transition: width 0.25s linear;
+}
+.participant-sticky-timer {
+  position: sticky;
+  top: 8px;
+  z-index: 60;
+  padding: 10px 14px;
+  margin: 0 0 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(31, 41, 55, 0.10);
+  box-shadow: 0 12px 30px rgba(31, 41, 55, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.participant-sticky-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.participant-sticky-meta span {
+  min-width: 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.participant-sticky-meta strong {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  color: #111827;
+  font-size: 2.35rem;
+  line-height: 1;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.participant-sticky-meta em {
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.participant-sticky-track {
+  height: 7px;
+  margin-top: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(31, 41, 55, 0.10);
+}
+
+.participant-sticky-track > div {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent-color);
+  transition: width 0.25s linear;
+}
+
+.participant-sticky-timer-low {
+  border-color: rgba(239, 68, 68, 0.35);
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.16);
+}
+
+.participant-sticky-timer-low .participant-sticky-meta strong {
+  color: #dc2626;
+}
+
+.participant-sticky-timer-low .participant-sticky-track > div {
+  background: #ef4444;
 }
 
 .participant-question-card {
@@ -436,6 +512,32 @@ div[role="radiogroup"] label {
 
   .participant-timer {
     min-width: 0;
+  }
+  .participant-sticky-timer {
+    top: 6px;
+    padding: 9px 10px;
+    border-radius: 14px;
+  }
+
+  .participant-sticky-meta {
+    gap: 10px;
+  }
+
+  .participant-sticky-meta span {
+    font-size: 0.76rem;
+  }
+
+  .participant-sticky-meta strong {
+    font-size: 1.9rem;
+  }
+
+  .participant-sticky-meta em {
+    font-size: 0.72rem;
+  }
+
+  .participant-sticky-track {
+    height: 6px;
+    margin-top: 7px;
   }
 
   .participant-answer-grid-marker + div {
