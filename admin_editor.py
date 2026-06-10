@@ -112,6 +112,7 @@ TEXT = {
 ADMIN_CONFIG_KEY = "admin_working_config"
 ADMIN_SOURCE_KEY = "admin_source_config_json"
 ADMIN_ACTIVE_FILE_KEY = "admin_active_quiz_file"
+ADMIN_TIMER_SAVED_KEY = "admin_timer_saved_seconds"
 
 
 def render_admin_editor(config: dict[str, Any], language: str) -> dict[str, Any]:
@@ -129,6 +130,9 @@ def render_admin_editor(config: dict[str, Any], language: str) -> dict[str, Any]
 
     working_config = st.session_state[ADMIN_CONFIG_KEY]
     st.info(labels["edit_hint"])
+    saved_timer = st.session_state.pop(ADMIN_TIMER_SAVED_KEY, None)
+    if saved_timer is not None:
+        st.success(f"Тривалість відповіді збережено: {saved_timer} сек.")
     tabs = st.tabs([labels["quizzes"], labels["settings"], labels["questions"], labels["results"], labels["branding"], labels["data"]])
 
     with tabs[0]:
@@ -161,6 +165,8 @@ def render_admin_editor(config: dict[str, Any], language: str) -> dict[str, Any]
         save_quiz_config(working_config)
         st.session_state[ADMIN_SOURCE_KEY] = export_config(working_config)
         st.session_state[ADMIN_ACTIVE_FILE_KEY] = get_active_quiz_file()
+        saved_live_quiz = working_config.get("live_quiz", {})
+        st.session_state[ADMIN_TIMER_SAVED_KEY] = int(saved_live_quiz.get("question_timer_seconds", 10))
         st.success(labels["saved"])
         st.rerun()
 
@@ -277,19 +283,17 @@ def _render_settings(config: dict[str, Any], language: str) -> None:
         current_timer = 10
     if current_timer < 5 or current_timer > 120:
         current_timer = 10
-    st.markdown("<div class='admin-live-settings'>", unsafe_allow_html=True)
     st.subheader("Live quiz")
     live_quiz["question_timer_seconds"] = int(
         st.number_input(
             TEXT[language]["answer_duration"],
             min_value=5,
             max_value=120,
-            step=1,
             value=current_timer,
+            step=1,
             key="live_question_timer_seconds",
         )
     )
-    st.markdown("</div>", unsafe_allow_html=True)
     live_quiz["auto_reveal"] = bool(live_quiz.get("auto_reveal", True))
     labels = config.setdefault("labels", {})
     for label_key in ["start_button", "next_button", "restart_button"]:
