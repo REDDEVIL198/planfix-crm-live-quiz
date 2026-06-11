@@ -204,6 +204,39 @@ def duplicate_quiz(source_filename: str, new_filename: str) -> str:
     return safe_name
 
 
+PROTECTED_QUIZ_FILES = {"active_quiz.json", "default_quiz.json", "default_quiz.template.json"}
+
+
+def delete_quiz_file(filename: str) -> None:
+    ensure_quiz_store()
+    if Path(filename).name != filename or "/" in filename or "\\" in filename:
+        raise ValueError("Quiz filename must not include a path.")
+    if not filename.lower().endswith(".json"):
+        raise ValueError("Only .json quiz files can be deleted.")
+    if filename in PROTECTED_QUIZ_FILES:
+        raise ValueError("This quiz file is protected and cannot be deleted.")
+
+    files = list_quiz_files()
+    if filename not in files:
+        raise FileNotFoundError(filename)
+    if len(files) <= 1:
+        raise ValueError("Cannot delete the last quiz.")
+    if filename == get_active_quiz_file():
+        raise ValueError("Cannot delete the active quiz.")
+
+    quizzes_root = QUIZZES_DIR.resolve()
+    target = (QUIZZES_DIR / filename).resolve()
+    try:
+        target.relative_to(quizzes_root)
+    except ValueError as exc:
+        raise ValueError("Quiz file must be inside the quizzes directory.") from exc
+    if target.suffix.lower() != ".json":
+        raise ValueError("Only .json quiz files can be deleted.")
+    if not target.is_file():
+        raise FileNotFoundError(filename)
+    target.unlink()
+
+
 def delete_quiz(filename: str) -> None:
     ensure_quiz_store()
     safe_name = sanitize_quiz_filename(filename)

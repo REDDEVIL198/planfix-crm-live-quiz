@@ -13,6 +13,7 @@ from storage import (
     create_blank_quiz,
     create_quiz_from_current,
     delete_quiz,
+    delete_quiz_file,
     duplicate_quiz,
     export_config,
     get_active_quiz_file,
@@ -46,6 +47,11 @@ TEXT = {
         "create_blank": "Створити порожній квіз",
         "duplicate_quiz": "Дублювати квіз",
         "delete_quiz": "Видалити квіз",
+        "delete_quiz_section": "Видалення квізу",
+        "confirm_delete_quiz": "Я підтверджую видалення квізу",
+        "cannot_delete_active": "Неможливо видалити активний квіз. Спочатку оберіть інший активний квіз.",
+        "cannot_delete_last": "Неможливо видалити останній квіз.",
+        "delete_failed": "Не вдалося видалити квіз.",
         "quiz_filename": "Назва файлу квізу",
         "quiz_saved_active": "Квіз збережено і зроблено активним.",
         "quiz_switched": "Активний квіз змінено.",
@@ -86,6 +92,11 @@ TEXT = {
         "create_blank": "Create blank quiz",
         "duplicate_quiz": "Duplicate quiz",
         "delete_quiz": "Delete quiz",
+        "delete_quiz_section": "Delete quiz",
+        "confirm_delete_quiz": "I confirm quiz deletion",
+        "cannot_delete_active": "Cannot delete the active quiz. Choose another active quiz first.",
+        "cannot_delete_last": "Cannot delete the last quiz.",
+        "delete_failed": "Could not delete quiz.",
         "quiz_filename": "Quiz filename",
         "quiz_saved_active": "Quiz saved and made active.",
         "quiz_switched": "Active quiz changed.",
@@ -244,15 +255,31 @@ def _render_quiz_manager(config: dict[str, Any], language: str) -> dict[str, Any
             st.error(f"{labels['invalid_json']} {exc}")
 
     st.divider()
-    confirm_delete = st.checkbox(labels["confirm"], key="confirm_delete_quiz")
-    if st.button(labels["delete_quiz"], disabled=not confirm_delete, key="delete_active_quiz"):
-        try:
-            delete_quiz(active_file)
-            reset_live_session()
-            st.success(labels["quiz_deleted"])
-            st.rerun()
-        except Exception as exc:
-            st.error(str(exc))
+    st.subheader(labels["delete_quiz_section"])
+    delete_files = list_quiz_files()
+    if len(delete_files) <= 1:
+        st.warning(labels["cannot_delete_last"])
+    else:
+        delete_selection = st.selectbox(labels["delete_quiz"], delete_files, key="delete_quiz_select")
+        if delete_selection == get_active_quiz_file():
+            st.warning(labels["cannot_delete_active"])
+        confirm_delete = st.checkbox(labels["confirm_delete_quiz"], key="confirm_delete_quiz")
+        delete_disabled = not confirm_delete or delete_selection == get_active_quiz_file()
+        if st.button(labels["delete_quiz"], disabled=delete_disabled, key="delete_quiz_file"):
+            try:
+                delete_quiz_file(delete_selection)
+                st.success(labels["quiz_deleted"])
+                st.rerun()
+            except ValueError as exc:
+                message = str(exc)
+                if message == "Cannot delete the active quiz.":
+                    st.warning(labels["cannot_delete_active"])
+                elif message == "Cannot delete the last quiz.":
+                    st.warning(labels["cannot_delete_last"])
+                else:
+                    st.error(f"{labels['delete_failed']} {exc}")
+            except Exception as exc:
+                st.error(f"{labels['delete_failed']} {exc}")
     return None
 
 def _localized_text_input(label: str, value: Any, language: str, key: str) -> dict[str, str]:
