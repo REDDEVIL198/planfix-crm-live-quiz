@@ -1,0 +1,1168 @@
+{
+  "quiz_title": {
+    "uk": "Planfix CRM: проверка знаний",
+    "en": "Planfix CRM: Knowledge Check"
+  },
+  "quiz_subtitle": {
+    "uk": "Короткий квиз о работе в Planfix CRM: клиенты, сделки, статусы, данные, структура и следующие действия.",
+    "en": "A short quiz about why the team needs CRM and how Planfix helps work with clients."
+  },
+  "intro_text": {
+    "uk": "Коллеги, привет! Пройдите короткий квиз, чтобы проверить понимание работы в Planfix CRM: статусы, структура Direction → Product → Method, качество данных, pipeline и следующие действия.",
+    "en": "Welcome! Take this short quiz to check your understanding of CRM, statuses, next actions, data quality and teamwork with clients."
+  },
+  "final_message": {
+    "uk": "Planfix CRM — это общая рабочая система команды. Она помогает не терять клиентов, договорённости, статусы, следующие действия и видеть реальную картину продаж.",
+    "en": "CRM is not control for the sake of control. It is a shared system that helps the team keep clients, agreements and next actions visible."
+  },
+  "labels": {
+    "start_button": {
+      "uk": "Начать квиз",
+      "en": "Start quiz"
+    },
+    "next_button": {
+      "uk": "Далее",
+      "en": "Next"
+    },
+    "restart_button": {
+      "uk": "Пройти ещё раз",
+      "en": "Restart quiz"
+    }
+  },
+  "show_answer_review": true,
+  "branding": {
+    "logo_path": "assets/logo2.png",
+    "primary_color": "#1F6FEB",
+    "secondary_color": "#F4F7FB",
+    "accent_color": "#FFB000",
+    "background_color": "#FFFFFF",
+    "text_color": "#1F2937",
+    "font_family": "Inter, Arial, sans-serif"
+  },
+  "results": [
+    {
+      "id": "explorer",
+      "title": {
+        "uk": "CRM Explorer",
+        "en": "CRM Explorer"
+      },
+      "min_percentage": 0,
+      "max_percentage": 40,
+      "description": {
+        "uk": "Ты уже сделал первый шаг к лучшему пониманию CRM. Рекомендуем ещё раз пересмотреть базовую логику работы с клиентами, статусами и следующими действиями.",
+        "en": "You have already made the first step toward understanding CRM better. Review the basic logic of working with clients, statuses and next actions."
+      }
+    },
+    {
+      "id": "active_user",
+      "title": {
+        "uk": "CRM Active User",
+        "en": "CRM Active User"
+      },
+      "min_percentage": 41,
+      "max_percentage": 70,
+      "description": {
+        "uk": "Ты хорошо понимаешь основную логику CRM. Следующий шаг — внимательнее работать с качеством данных, статусами и историей коммуникации.",
+        "en": "You understand the main CRM logic well. The next step is to work more carefully with data quality, statuses and communication history."
+      }
+    },
+    {
+      "id": "champion",
+      "title": {
+        "uk": "CRM Champion",
+        "en": "CRM Champion"
+      },
+      "min_percentage": 71,
+      "max_percentage": 100,
+      "description": {
+        "uk": "Отличный результат. Ты хорошо понимаешь, что CRM — это не просто система для отчётности, а инструмент командной работы, управления клиентами и принятия решений.",
+        "en": "Great result. You understand that CRM is not just a reporting system, but a tool for teamwork, client management and decision-making."
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "question": {
+        "uk": "Для чего компании нужна CRM?",
+        "en": "Why does a company need CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Чтобы усложнить работу сотрудникам",
+            "en": "To make employees' work more complicated"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Чтобы хранить клиентов, сделки, историю коммуникации и следующие действия в одном месте",
+            "en": "To keep clients, deals, communication history and next actions in one place"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Чтобы заменить все рабочие чаты",
+            "en": "To replace all work chats"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Чтобы дублировать Excel-файлы",
+            "en": "To duplicate Excel files"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM помогает хранить клиентов, сделки, историю коммуникации и следующие действия в одном месте.",
+        "en": "CRM helps keep clients, deals, communication history and next actions in one place."
+      }
+    },
+    {
+      "id": "q2",
+      "question": {
+        "uk": "Какую главную проблему решает CRM?",
+        "en": "What main problem does CRM solve?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Автоматически продаёт вместо менеджера",
+            "en": "It automatically sells instead of the manager"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Удаляет старые контакты",
+            "en": "It deletes old contacts"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Заменяет живую коммуникацию с клиентом",
+            "en": "It replaces live communication with the client"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Помогает не терять клиентов, задачи и договорённости",
+            "en": "It helps avoid losing clients, tasks and agreements"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM даёт команде общую память о клиентах, задачах и договорённостях.",
+        "en": "CRM gives the team a shared memory of clients, tasks and agreements."
+      }
+    },
+    {
+      "id": "q3",
+      "question": {
+        "uk": "Что важнее всего фиксировать в CRM после контакта с клиентом?",
+        "en": "What is most important to record in CRM after contacting a client?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Только имя клиента",
+            "en": "Only the client's name"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Только сумму потенциальной сделки",
+            "en": "Only the potential deal amount"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Результат контакта, договорённости и следующий шаг",
+            "en": "The contact result, agreements and next step"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Ничего, если контакт был коротким",
+            "en": "Nothing if the contact was short"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 1,
+      "explanation": {
+        "uk": "После контакта важно сохранить контекст, договорённости и конкретное следующее действие.",
+        "en": "After contact, it is important to save context, agreements and a specific next action."
+      }
+    },
+    {
+      "id": "q4",
+      "question": {
+        "uk": "Почему важно ставить следующее действие в CRM?",
+        "en": "Why is it important to set the next action in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Чтобы не забыть, что и когда нужно сделать",
+            "en": "So the team does not forget what needs to be done and when"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Чтобы было больше задач в системе",
+            "en": "To create more tasks in the system"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Чтобы руководитель видел только активность, а не результат",
+            "en": "So the manager sees only activity, not results"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Это необязательно",
+            "en": "It is optional"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "Следующее действие защищает договорённость от потери и делает работу прогнозируемой.",
+        "en": "A next action protects agreements from being lost and makes work predictable."
+      }
+    },
+    {
+      "id": "q5",
+      "question": {
+        "uk": "Что происходит, если информация в CRM не обновляется?",
+        "en": "What happens if information in CRM is not updated?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Ничего страшного, всё можно вспомнить позже",
+            "en": "Nothing serious, everything can be remembered later"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Команда видит неточную картину по клиентам, сделкам и прогнозам",
+            "en": "The team sees an inaccurate picture of clients, deals and forecasts"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "CRM автоматически всё исправит",
+            "en": "CRM will automatically fix everything"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Сделка автоматически закроется как выигранная",
+            "en": "The deal will automatically close as won"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "Неактуальные данные искажают картину работы с клиентами и прогнозы.",
+        "en": "Outdated data distorts the view of client work and forecasts."
+      }
+    },
+    {
+      "id": "q6",
+      "question": {
+        "uk": "Зачем в CRM используется поле Direction?",
+        "en": "Why is the Direction field used in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Чтобы заменить поле «Компания»",
+            "en": "To replace the Company field"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Чтобы автоматически посчитать стоимость проекта",
+            "en": "To automatically calculate the project price"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Чтобы сначала определить направление запроса, а затем корректно выбрать продукт и метод",
+            "en": "To define the request direction first, then correctly select the product and method"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Чтобы скрыть сделку от других менеджеров",
+            "en": "To hide the deal from other managers"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 2,
+      "explanation": {
+        "uk": "Direction задаёт верхний уровень классификации запроса. После него логично выбирать Product и Method, чтобы данные были пригодны для аналитики.",
+        "en": "Direction is the top-level request classification. Product and Method should follow it so the data remains useful for analytics."
+      }
+    },
+    {
+      "id": "q7",
+      "question": {
+        "uk": "Почему важно правильно выбирать статус сделки?",
+        "en": "Why is it important to choose the deal status correctly?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Чтобы система выглядела заполненной",
+            "en": "So the system looks filled in"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Статус не имеет значения",
+            "en": "Status does not matter"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Чтобы было понятно, на каком этапе клиент и что нужно делать дальше",
+            "en": "So it is clear what stage the client is at and what should happen next"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Чтобы сделок было больше в CRM",
+            "en": "To have more deals in CRM"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 1,
+      "explanation": {
+        "uk": "Статус показывает этап работы с клиентом и помогает планировать следующие действия.",
+        "en": "Status shows the client stage and helps plan next actions."
+      }
+    },
+    {
+      "id": "q8",
+      "question": {
+        "uk": "Каким статусом в Planfix мы обозначаем действующего клиента?",
+        "en": "Which status in Planfix do we use for an active client?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Qualified lead",
+            "en": "Qualified lead"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Current customer",
+            "en": "Current customer"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Non-target lead",
+            "en": "Non-target lead"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Lost customer",
+            "en": "Lost customer"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 2,
+      "explanation": {
+        "uk": "Действующего клиента мы обозначаем статусом Current customer. Это помогает отделять текущих клиентов от новых лидов и не терять историю сотрудничества.",
+        "en": "An active client is marked as Current customer. This separates existing clients from new leads and preserves cooperation history."
+      }
+    },
+    {
+      "id": "q9",
+      "question": {
+        "uk": "Сколько сотрудников работают в CRM?",
+        "en": "How many employees work in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "30",
+            "en": "30"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "27",
+            "en": "27"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "15",
+            "en": "15"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "42",
+            "en": "42"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 1,
+      "explanation": {
+        "uk": "В CRM работают 42 сотрудника. Это показывает, что система уже является общей рабочей инфраструктурой, а не инструментом одного отдела.",
+        "en": "42 employees work in CRM. This shows that the system is already a shared working infrastructure, not a tool for one department only."
+      }
+    },
+    {
+      "id": "q10",
+      "question": {
+        "uk": "Что лучше сделать, если клиент пока не принял решение?",
+        "en": "What is best to do if a client has not made a decision yet?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Зафиксировать текущий статус, причину паузы и следующую дату контакта",
+            "en": "Record the current status, pause reason and next contact date"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Оставить сделку без обновления",
+            "en": "Leave the deal without updates"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Закрыть сделку как проигранную",
+            "en": "Close the deal as lost"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Удалить контакт",
+            "en": "Delete the contact"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 1,
+      "explanation": {
+        "uk": "Если решения ещё нет, важно сохранить причину паузы и дату следующего контакта.",
+        "en": "If there is no decision yet, save the pause reason and the next contact date."
+      }
+    },
+    {
+      "id": "q11",
+      "question": {
+        "uk": "Зачем в CRM нужна история коммуникации с клиентом?",
+        "en": "Why does CRM need communication history with a client?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Чтобы хранить лишнюю информацию",
+            "en": "To store unnecessary information"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Чтобы не общаться с клиентом напрямую",
+            "en": "So the team does not communicate with the client directly"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Чтобы заменить коммерческое предложение",
+            "en": "To replace a commercial offer"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Чтобы любой ответственный сотрудник мог быстро понять контекст",
+            "en": "So any responsible employee can quickly understand the context"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 1,
+      "explanation": {
+        "uk": "История коммуникации даёт контекст и помогает продолжить работу без потери информации.",
+        "en": "Communication history provides context and helps continue work without losing information."
+      }
+    },
+    {
+      "id": "q12",
+      "question": {
+        "uk": "Какая информация больше всего помогает команде работать с клиентом?",
+        "en": "What information helps the team work with a client the most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Только название компании",
+            "en": "Only the company name"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Актуальные контакты, потребность клиента, статус, история коммуникации и следующее действие",
+            "en": "Current contacts, client need, status, communication history and next action"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Только email",
+            "en": "Only email"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Только сумма сделки",
+            "en": "Only the deal amount"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 1,
+      "explanation": {
+        "uk": "Команде нужен полный рабочий контекст, а не один отдельный реквизит.",
+        "en": "The team needs full working context, not just one separate field."
+      }
+    },
+    {
+      "id": "q13",
+      "question": {
+        "uk": "В чём основная ценность корректного выбора Product и Method?",
+        "en": "What is the main value of choosing Product and Method correctly?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Это заменяет коммерческое предложение",
+            "en": "It replaces a commercial offer"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Это не влияет на аналитику",
+            "en": "It does not affect analytics"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Это нужно только для красоты отчёта",
+            "en": "It is only needed to make the report look good"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Это помогает строить аналитику по спросу, продуктам и типам исследований",
+            "en": "It helps build analytics by demand, products and research types"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 2,
+      "explanation": {
+        "uk": "Product и Method позволяют видеть, какие услуги запрашивают клиенты, какие направления растут и где есть потенциал для продаж.",
+        "en": "Product and Method show what services clients request, which areas are growing and where sales potential exists."
+      }
+    },
+    {
+      "id": "q14",
+      "question": {
+        "uk": "Как CRM помогает руководителям и команде?",
+        "en": "How does CRM help managers and the team?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Заменяет все встречи",
+            "en": "It replaces all meetings"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Самостоятельно принимает решения за сотрудников",
+            "en": "It makes decisions for employees"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Даёт реальную картину по клиентам, сделкам, загрузке и прогнозу",
+            "en": "It gives a real picture of clients, deals, workload and forecast"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Работает только для отчётности",
+            "en": "It works only for reporting"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM помогает видеть реальную ситуацию и принимать решения на основе данных.",
+        "en": "CRM helps see the real situation and make data-based decisions."
+      }
+    },
+    {
+      "id": "q15",
+      "question": {
+        "uk": "Что больше всего ухудшает качество CRM?",
+        "en": "What harms CRM quality the most?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Заполненные поля и актуальные комментарии",
+            "en": "Filled fields and current comments"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Регулярное обновление информации",
+            "en": "Regular information updates"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Неправильные статусы, пустые поля и отсутствие следующих действий",
+            "en": "Wrong statuses, empty fields and missing next actions"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Чёткая история коммуникации",
+            "en": "Clear communication history"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM теряет ценность, когда данные неполные, неправильные или не содержат следующих действий.",
+        "en": "CRM loses value when data is incomplete, incorrect or has no next actions."
+      }
+    },
+    {
+      "id": "q16",
+      "question": {
+        "uk": "Какой подход к CRM является правильным?",
+        "en": "Which approach to CRM is correct?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "CRM — это дополнительная работа без пользы",
+            "en": "CRM is extra work with no benefit"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "CRM нужна только руководителям",
+            "en": "CRM is needed only by managers"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "CRM нужна только отделу продаж",
+            "en": "CRM is needed only by the sales department"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "CRM — это общая система, которая помогает команде работать быстрее, точнее и не терять важную информацию",
+            "en": "CRM is a shared system that helps the team work faster, more accurately and without losing important information"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 1,
+      "explanation": {
+        "uk": "CRM лучше всего работает как общий командный инструмент.",
+        "en": "CRM works best as a shared team tool."
+      }
+    },
+    {
+      "id": "q17",
+      "question": {
+        "uk": "В какой логике правильно заполнять поля в CRM при квалификации запроса?",
+        "en": "What is the correct logic for filling CRM fields when qualifying a request?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Сначала сумма сделки, потом всё остальное",
+            "en": "Deal amount first, then everything else"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Сначала Direction, затем Product, затем Method",
+            "en": "First Direction, then Product, then Method"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Сначала Method, затем клиент, затем статус",
+            "en": "First Method, then client, then status"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Порядок не важен, главное что-то заполнить",
+            "en": "The order does not matter as long as something is filled in"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 2,
+      "explanation": {
+        "uk": "Правильная логика: сначала определить направление запроса, затем продукт и только после этого метод. Так данные остаются пригодными для аналитики.",
+        "en": "The correct logic is to define the request direction first, then the product, and only then the method. This keeps the data useful for analytics."
+      }
+    },
+    {
+      "id": "q18",
+      "question": {
+        "uk": "Что корректнее сделать, если запрос клиента не относится к нашему направлению?",
+        "en": "What is the correct action if a client's request is outside our scope?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Оставить сделку без статуса",
+            "en": "Leave the deal without a status"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Удалить клиента из CRM",
+            "en": "Delete the client from CRM"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Поставить любой удобный статус",
+            "en": "Set any convenient status"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Зафиксировать статус Out of Scope / Не наш напрям и добавить комментарий",
+            "en": "Set Out of Scope and add a comment"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 2,
+      "explanation": {
+        "uk": "Если запрос не наш, важно корректно зафиксировать причину. Это помогает отделять нецелевые обращения от реальных потерь в продажах.",
+        "en": "If the request is outside our scope, the reason must be recorded correctly. This separates non-target requests from real sales losses."
+      }
+    },
+    {
+      "id": "q19",
+      "question": {
+        "uk": "Что является основой качественного Sales Pipeline?",
+        "en": "What is the foundation of a high-quality Sales Pipeline?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Большое количество сделок без деталей",
+            "en": "A large number of deals without details"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Актуальные статусы, реальные суммы, next action и причины потерь",
+            "en": "Current statuses, real amounts, next actions and loss reasons"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Красивые названия компаний",
+            "en": "Nice company names"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Только количество входящих лидов",
+            "en": "Only the number of incoming leads"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 2,
+      "explanation": {
+        "uk": "Качественный pipeline строится не на количестве карточек, а на актуальности статусов, сумм, следующих действий и причин потерь.",
+        "en": "A high-quality pipeline is based not on card volume, but on accurate statuses, amounts, next actions and loss reasons."
+      }
+    },
+    {
+      "id": "q20",
+      "question": {
+        "uk": "Что обязательно должно быть понятно из карточки сделки перед передачей в работу?",
+        "en": "What must be clear from the deal card before handover to delivery?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Только название компании",
+            "en": "Only the company name"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Только имя менеджера, который вел коммуникацию",
+            "en": "Only the name of the manager who handled communication"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Клиент, потребность, продукт/метод, договоренности, контакты и следующий шаг",
+            "en": "Client, need, product/method, agreements, contacts and next step"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Только сумма и вероятность сделки",
+            "en": "Only deal amount and probability"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 2,
+      "explanation": {
+        "uk": "Передача без контекста создает потери времени и ошибки. Карточка должна давать рабочую картину: кто клиент, что нужно, что согласовано и что делать дальше.",
+        "en": "Handover without context creates wasted time and errors. The card must show who the client is, what is needed, what is agreed and what happens next."
+      }
+    },
+    {
+      "id": "q21",
+      "question": {
+        "uk": "Зачем в CRM нужны причины проигрыша сделки?",
+        "en": "Why do we need lost-deal reasons in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Чтобы анализировать Win/Loss, видеть реальные причины потерь и улучшать продажи",
+            "en": "To analyze Win/Loss, see real loss reasons and improve sales"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Чтобы просто закрыть больше задач",
+            "en": "Just to close more tasks"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Чтобы менеджер меньше писал комментариев",
+            "en": "So the manager writes fewer comments"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Причины проигрыша не нужны, достаточно статуса Lost",
+            "en": "Lost reasons are not needed; Lost status is enough"
+          }
+        }
+      ],
+      "correct_option_id": "A",
+      "points": 2,
+      "explanation": {
+        "uk": "Причины проигрыша показывают, где именно теряются сделки: цена, бюджет, конкурент, in-house, отсутствие решения или другой фактор.",
+        "en": "Lost reasons show exactly where deals are lost: price, budget, competitor, in-house, no decision or another factor."
+      }
+    },
+    {
+      "id": "q22",
+      "question": {
+        "uk": "Что нужно сделать, если клиент ответил, но следующий шаг еще не зафиксирован?",
+        "en": "What should be done if the client replied but the next step is not recorded yet?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Подождать, пока клиент сам напишет еще раз",
+            "en": "Wait until the client writes again"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Закрыть сделку как Won",
+            "en": "Close the deal as Won"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Ничего не делать, если коммуникация была позитивной",
+            "en": "Do nothing if the communication was positive"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Зафиксировать результат контакта и поставить конкретную следующую дату/действие",
+            "en": "Record the contact result and set a specific next date/action"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 1,
+      "explanation": {
+        "uk": "Без следующего действия сделка легко зависает. CRM должна показывать не только историю, но и следующий управляемый шаг.",
+        "en": "Without a next action, a deal easily gets stuck. CRM must show not only history but also the next manageable step."
+      }
+    },
+    {
+      "id": "q23",
+      "question": {
+        "uk": "Что означает статус Insufficient Project Scope?",
+        "en": "What does Insufficient Project Scope mean?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Клиент уже оплатил проект",
+            "en": "The client has already paid for the project"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Клиент выбрал конкурента",
+            "en": "The client selected a competitor"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Запрос слишком маленький или объем проекта недостаточен для запуска",
+            "en": "The request is too small or the project volume is insufficient to launch"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Проект нужно срочно передать в аналитику",
+            "en": "The project must be urgently handed over to analytics"
+          }
+        }
+      ],
+      "correct_option_id": "C",
+      "points": 2,
+      "explanation": {
+        "uk": "Insufficient Project Scope используется, когда объем проекта недостаточен: например, запрос слишком маленький или не соответствует минимальному масштабу запуска.",
+        "en": "Insufficient Project Scope is used when the project volume is insufficient, for example when the request is too small or does not meet the minimum launch scale."
+      }
+    },
+    {
+      "id": "q24",
+      "question": {
+        "uk": "Почему нельзя создавать дубли компаний и контактов в CRM?",
+        "en": "Why should duplicate companies and contacts not be created in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Потому что CRM не позволяет создавать новые компании",
+            "en": "Because CRM does not allow creating new companies"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Потому что дубли ломают историю коммуникации, аналитику, ответственность и прогноз",
+            "en": "Because duplicates break communication history, analytics, ownership and forecasting"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Потому что так меньше строк в отчете",
+            "en": "Because there are fewer rows in the report this way"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Дубли не мешают, если у них разные названия",
+            "en": "Duplicates do not matter if they have different names"
+          }
+        }
+      ],
+      "correct_option_id": "B",
+      "points": 2,
+      "explanation": {
+        "uk": "Дубли разделяют историю клиента между разными карточками. Из-за этого команда теряет контекст, а отчеты становятся неточными.",
+        "en": "Duplicates split the client history across different cards. The team loses context and reports become inaccurate."
+      }
+    },
+    {
+      "id": "q25",
+      "question": {
+        "uk": "Что нужно сделать, если в CRM уже есть такая компания?",
+        "en": "What should be done if this company already exists in CRM?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "text": {
+            "uk": "Удалить старую карточку",
+            "en": "Delete the old card"
+          }
+        },
+        {
+          "id": "B",
+          "text": {
+            "uk": "Создать сделку без компании",
+            "en": "Create a deal without a company"
+          }
+        },
+        {
+          "id": "C",
+          "text": {
+            "uk": "Создать новую карточку, чтобы не искать старую",
+            "en": "Create a new card to avoid searching for the old one"
+          }
+        },
+        {
+          "id": "D",
+          "text": {
+            "uk": "Проверить существующую карточку и не создавать дубль",
+            "en": "Check the existing card and do not create a duplicate"
+          }
+        }
+      ],
+      "correct_option_id": "D",
+      "points": 2,
+      "explanation": {
+        "uk": "Если компания уже есть в CRM, нужно использовать существующую карточку. Дубли ломают историю коммуникации, аналитику и ответственность.",
+        "en": "If the company already exists in CRM, use the existing card. Duplicates break communication history, analytics and ownership."
+      }
+    }
+  ],
+  "security": {
+    "host_pin": "4444",
+    "admin_pin": "9999"
+  },
+  "live_quiz": {
+    "question_timer_seconds": 20,
+    "auto_reveal": true
+  }
+}
